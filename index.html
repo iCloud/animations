@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>animation</title>
+  <style type="text/css">
+html {
+  height:100%;
+}
+body {
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  
+  /*контент в центр страницы*/
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  margin: 33% 33% 33% 33%;
+  background: radial-gradient(#60AAFE, #0455F1, #D86AF7);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  transition: all 0.6s ease;
+}
+
+.circle1,
+.circle2 {
+  background: radial-gradient(#60AAFE, #0455F1, #D86AF7);
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  transition: all 0.6s ease;
+  position: absolute;
+  margin: 8%;
+  transform:rotateX(-90deg) translateZ(100px) rotate(180deg);
+}
+
+/*при наведении на фигуру*/
+.circle:hover,
+.circle1:hover,
+.circle2:hover {
+  box-shadow: inset #57A8FA 0 0 40px 10px,
+              #57A8FA 0 0 24px 12px;
+}
+
+.orbit1 {
+  position: absolute;
+  right: 33%;
+  
+  animation: Orbita 15s linear infinite;
+}
+
+@keyframes Orbita {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+@keyframes Orbita2 {
+    from { transform: rotate(180deg) translateX(150px) rotate(180deg); }
+    to   { transform: rotate(540deg) translateX(150px) rotate(540deg); }
+}
+
+.orbit2 {
+  position: absolute;
+  right: 33%;
+  left: 39%;
+  top: 29%;
+  bottom: 33%;
+  animation: Orbita2 15s linear infinite; 
+}
+  </style>
+ </head> 
+ <body>
+
+  <div class="donut">
+  <figure class="circle1 circle1-pos orbit1"></figure>
+  <figure class="circle2 circle2-pos orbit2"></figure>
+  <figure class="circle"></figure>
+</div>
+
+ </body>
+</html>
